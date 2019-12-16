@@ -4,7 +4,7 @@
  Source Server         : myyun
  Source Server Type    : MySQL
  Source Server Version : 50726
- Source Host           : 114.55.93.36:3306
+ Source Host           : 127.0.0.1:3306
  Source Schema         : rocketmq_trade
 
  Target Server Type    : MySQL
