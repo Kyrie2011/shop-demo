@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hps.shop.mapper.TradeUserMoneyLogMapper">
+  <resultMap id="BaseResultMap" type="com.hps.shop.pojo.TradeUserMoneyLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="money_log_type" jdbcType="INTEGER" property="moneyLogType" />
+    <result column="use_money" jdbcType="DECIMAL" property="useMoney" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, user_id, order_id, money_log_type, use_money, create_time
+  </sql>
+</mapper>

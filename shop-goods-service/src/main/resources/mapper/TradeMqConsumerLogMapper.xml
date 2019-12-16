@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hps.shop.mapper.TradeMqConsumerLogMapper">
+  <resultMap id="BaseResultMap" type="com.hps.shop.pojo.TradeMqConsumerLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="msg_id" jdbcType="VARCHAR" property="msgId" />
+    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
+    <result column="msg_tag" jdbcType="VARCHAR" property="msgTag" />
+    <result column="msg_key" jdbcType="VARCHAR" property="msgKey" />
+    <result column="msg_body" jdbcType="VARCHAR" property="msgBody" />
+    <result column="consumer_status" jdbcType="INTEGER" property="consumerStatus" />
+    <result column="consumer_times" jdbcType="INTEGER" property="consumerTimes" />
+    <result column="consumer_timestamp" jdbcType="TIMESTAMP" property="consumerTimestamp" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    msg_id, group_name, msg_tag, msg_key, msg_body, consumer_status, consumer_times, 
+    consumer_timestamp, remark
+  </sql>
+</mapper>
