@@ -58,6 +58,20 @@ public class OrderServiceTest {
         order.setOrderAmount(new BigDecimal(5000));
         order.setMoneyPaid(new BigDecimal(5000));
 
+        /**
+         * {
+         *     "address": "湖北省",
+         *     "couponId": 56765,
+         *     "goodsId": 987,
+         *     "goodsNumber": 1,
+         *     "goodsPrice": 10.00,
+         *     "moneyPaid": 1,
+         *     "orderAmount": 10,
+         *     "payAmount": 8,
+         *     "shippingFee": 0,
+         *     "userId": 5463
+         * }
+         */
         final String jsonString = JSONObject.toJSONString(order);
 
         System.out.println(jsonString);
