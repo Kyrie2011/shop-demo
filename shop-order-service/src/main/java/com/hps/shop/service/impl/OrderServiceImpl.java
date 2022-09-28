@@ -75,6 +75,7 @@ public class OrderServiceImpl implements OrderService {
             reduceMoneyPaid(order);
             // 6.确认订单
             updateOrderStatus(order);
+
             // 7.返回成功状态
             return new Result(ShopCode.SHOP_SUCCESS.getSuccess(), ShopCode.SHOP_SUCCESS.getMessage());
         } catch (Exception e) {
@@ -113,6 +114,7 @@ public class OrderServiceImpl implements OrderService {
         order.setPayStatus(ShopCode.SHOP_ORDER_PAY_STATUS_NO_PAY.getCode());
         order.setConfirmTime(new Date());
         int r = tradeOrderMapper.updateByPrimaryKey(order);
+        CastException.cast(ShopCode.SHOP_ORDER_CONFIRM_FAIL);
         if (r <= 0) {
             CastException.cast(ShopCode.SHOP_ORDER_CONFIRM_FAIL);
         }
@@ -251,7 +253,7 @@ public class OrderServiceImpl implements OrderService {
         if (orderAmount.compareTo(new BigDecimal(100)) == 1) {
             return BigDecimal.ZERO;
         }
-        return new BigDecimal(10);
+        return new BigDecimal(0);
     }
 
     /**

@@ -1,6 +1,10 @@
 package com.hps.shop;
 
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.JsonAdapter;
 import com.hps.api.OrderService;
+import com.hps.entity.Result;
 import com.hps.shop.pojo.TradeOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,6 +40,27 @@ public class OrderServiceTest {
         order.setOrderAmount(new BigDecimal(5000));
         order.setMoneyPaid(new BigDecimal(5000));
 
-        orderService.confirmOrder(order);
+        final Result result = orderService.confirmOrder(order);
+        System.out.println(result);
+    }
+
+    public static void main(String[] args) {
+        TradeOrder order = new TradeOrder();
+
+        order.setGoodsId(1L);
+        order.setUserId(1L);
+        order.setCouponId(1L);
+        order.setAddress("湖北省");
+        order.setGoodsNumber(1);
+        order.setGoodsPrice(new BigDecimal(5000));
+        order.setPayAmount(new BigDecimal(5000));
+        order.setShippingFee(BigDecimal.ZERO);
+        order.setOrderAmount(new BigDecimal(5000));
+        order.setMoneyPaid(new BigDecimal(5000));
+
+        final String jsonString = JSONObject.toJSONString(order);
+
+        System.out.println(jsonString);
+
     }
 }
