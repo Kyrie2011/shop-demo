@@ -28,6 +28,8 @@ public class CancelMQListener implements RocketMQListener<MessageExt> {
 
     @Override
     public void onMessage(MessageExt messageExt) {
+        String threadName2 = Thread.currentThread().getId() + Thread.currentThread().getName();
+        System.out.println(threadName2+"------");
         try {
             // 1.解析消息内容
             String body = new String(messageExt.getBody(), RemotingHelper.DEFAULT_CHARSET);

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order")
 public class OrderController {
 
-    @Reference(retries = 0)
+    @Reference(retries = 1)
     private OrderService orderService;
 
     @PostMapping("/confirm")

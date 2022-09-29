@@ -24,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.lang.model.element.VariableElement;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -62,6 +63,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Result confirmOrder(TradeOrder order) {
+        String threadName = Thread.currentThread().getId() + Thread.currentThread().getName();
+        System.out.println(threadName);
         // 1.校验订单
         checkOrder(order);
         // 2.生成预订单
@@ -76,9 +79,12 @@ public class OrderServiceImpl implements OrderService {
             // 6.确认订单
             updateOrderStatus(order);
 
+            int a = 1 / 0;
             // 7.返回成功状态
             return new Result(ShopCode.SHOP_SUCCESS.getSuccess(), ShopCode.SHOP_SUCCESS.getMessage());
         } catch (Exception e) {
+            String threadName2 = Thread.currentThread().getId() + Thread.currentThread().getName();
+            System.out.println(threadName2+"------");
             // 1.确认订单失败, 发送消息
             MqEntity entity = new MqEntity();
             entity.setOrderId(order.getOrderId());
@@ -114,7 +120,6 @@ public class OrderServiceImpl implements OrderService {
         order.setPayStatus(ShopCode.SHOP_ORDER_PAY_STATUS_NO_PAY.getCode());
         order.setConfirmTime(new Date());
         int r = tradeOrderMapper.updateByPrimaryKey(order);
-        CastException.cast(ShopCode.SHOP_ORDER_CONFIRM_FAIL);
         if (r <= 0) {
             CastException.cast(ShopCode.SHOP_ORDER_CONFIRM_FAIL);
         }

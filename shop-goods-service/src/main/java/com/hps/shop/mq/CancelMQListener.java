@@ -55,6 +55,8 @@ public class CancelMQListener implements RocketMQListener<MessageExt> {
         String body = null;
         TradeMqConsumerLog mqConsumerLog = null;
         try {
+            String threadName2 = Thread.currentThread().getId() + Thread.currentThread().getName();
+            System.out.println(threadName2+"------");
             // 1.解析消息内容
             msgId = messageExt.getMsgId();
             tags = messageExt.getTags();
